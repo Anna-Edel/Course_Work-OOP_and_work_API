@@ -10,7 +10,6 @@ def write_json(data):  # получение списка фотографий с
 
     if 'response' in data and 'items' in data['response']:
         photos = data['response']['items']  # Дальнейшая обработка данных
-        
     else:
         print("Отсутствует ключ 'response' или 'items' в JSON-файле.")
 
