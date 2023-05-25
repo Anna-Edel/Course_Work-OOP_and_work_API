@@ -8,6 +8,12 @@ def write_json(data):  # получение списка фотографий с
     with open('list_photos_VK.json', 'w') as file:
         json.dump(data, file, indent=2, ensure_ascii=False)
 
+    if 'response' in data and 'items' in data['response']:
+        photos = data['response']['items']  # Дальнейшая обработка данных
+        
+    else:
+        print("Отсутствует ключ 'response' или 'items' в JSON-файле.")
+
 
 def get_foto_data(offset=0, count=50):  # получение списка фотографий со страницы в VK
     api = requests.get('https://api.vk.com/method/photos.getAll', params={
