@@ -15,11 +15,12 @@ def write_json(data):  # получение списка фотографий с
 
 
 def get_foto_data(offset=0, count=50):  # получение списка фотографий со страницы в VK
-    api = requests.get('https://api.vk.com/method/photos.getAll', params={
+    api = requests.get('https://api.vk.com/method/photos.get', params={
         'owner_id': vk_user_id,
         'access_token': vk_token,
         'offset': offset,
         'count': count,
+        'album_id': 'profile',
         'extended': 1,
         'photo_sizes': True,
         'v': 5.131
